@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Tooltip from './components/Tooltip.vue'
+import ToolTip from './plugin/ToolTip.vue';
 const title = ref('Hello World');
 </script>
 
@@ -9,7 +9,7 @@ const title = ref('Hello World');
   <input v-model="title" />
     <span>
       Hover me for tooltip
-      <Tooltip :text="title" :options="{  placement: 'right',}"/>
+      <ToolTip :text="title" :options="{  placement: 'right',}"/>
     </span>
   </div>
 </template>

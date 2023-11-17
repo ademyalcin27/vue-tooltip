@@ -1,19 +1,44 @@
 {
-  "name": "tooltip",
-  "version": "0.0.0",
-  "private": true,
+  "name": "io-tooltip",
+  "version": "0.0.1",
+  "description": "Vue JS TippyJs Tooltip Plugin",
+  "keywords": [
+    "Vue 3 Tooltip",
+    "Tippy Js"
+  ],
+  "homepage": "https://github.com/ademyalcin27/vue-tooltip",
+  "bugs": {
+    "url": "https://github.com/ademyalcin27/vue-tooltip"
+  },
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/io-tooltip.umd.cjs",
+  "module": "./dist/io-tooltip.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/io-tooltip.js",
+      "require": "./dist/io-tooltip.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "vite build && npm run build:type",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "build:type":"vue-tsc --declaration --emitDeclarationOnly --outdir ./dist"
   },
   "dependencies": {
     "tippy.js": "^6.3.7",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.8.22"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",
@@ -28,7 +53,6 @@
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.0.3",
     "typescript": "~5.2.0",
-    "vite": "^4.4.11",
-    "vue-tsc": "^1.8.19"
+    "vite": "^4.4.11"
   }
 }
